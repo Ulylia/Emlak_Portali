@@ -1,0 +1,123 @@
+{
+  "categories": [
+    {
+      "id": 6,
+      "adi": "Arsalar",
+      "kaytarih": "1673344690181",
+      "duztarih": "1673546709381"
+    },
+    {
+      "id": 7,
+      "adi": "Konutlar",
+      "kaytarih": "1673344697586",
+      "duztarih": "1673546716213"
+    },
+    {
+      "id": 8,
+      "adi": "Ticari",
+      "kaytarih": "1673344710211",
+      "duztarih": "1673344710211"
+    },
+    {
+      "id": 9,
+      "adi": "kategori",
+      "kaytarih": "1673546833583",
+      "duztarih": "1673546833583"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "adsoyad": "Tuğçe Gümüştekin",
+      "mail": "kubratugce1@gmail.com",
+      "admin": "1",
+      "parola": "123456",
+      "kaytarih": "1668070115626",
+      "duztarih": "1673543132213"
+    },
+    {
+      "id": 2,
+      "adsoyad": "Nesip Durbay",
+      "mail": "nesip@mail.com",
+      "admin": "1",
+      "parola": "260320",
+      "kaytarih": "1668070283323",
+      "duztarih": "1673546570567"
+    },
+    {
+      "id": 3,
+      "adsoyad": "Demirhan Kaya",
+      "mail": "demir@mail.com",
+      "admin": "1",
+      "parola": "123",
+      "kaytarih": "1670015503731",
+      "duztarih": "1670338138079"
+    }
+
+  ],
+  "houses": [
+    {
+      "id": 12,
+      "evadi": "Bahçeli 5+2 Ev",
+      "evfiyati": "5.654.321",
+      "evResmi": "https://www.dekorcenneti.com/galeri/en%20guzel%20bahceli%20ev%20modelleri%20(1).jpg",
+      "categoryId": "7",
+      "kaytarih": "1670105478672",
+      "duztarih": "1673344774569"
+    },
+    {
+      "id": 13,
+      "evadi": "Sahibinden Konteyner Ev",
+      "evfiyati": "9.8746.453",
+      "evResmi": "https://i.evimdergisi.com/wp-content/uploads/2021/03/konteynir-ev.jpg",
+      "categoryId": "7",
+      "kaytarih": "1670107810735",
+      "duztarih": "1673344789681"
+    },
+    {
+      "id": 14,
+      "evadi": "Manavgat'ta Kiralık Ağaç Ev",
+      "evfiyati": "6.500",
+      "evResmi": "https://i.pinimg.com/originals/59/c7/fa/59c7fab45e599bac954245aae39ce8ea.jpg",
+      "categoryId": "7",
+      "kaytarih": "1670116775250",
+      "duztarih": "1673344780333"
+    },
+    {
+      "id": 15,
+      "evadi": "Müstakil Havuz Otoparklı Villa",
+      "evfiyati": "50.000.000",
+      "evResmi": "https://www.mynextblock.com/ilan/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-19-at-15.50.35-10.jpeg",
+      "categoryId": "7",
+      "kaytarih": "1670256837674",
+      "duztarih": "1673344755115"
+    },
+    {
+      "id": 16,
+      "evadi": null,
+      "evfiyati": null,
+      "evResmi": null,
+      "categoryId": null,
+      "kaytarih": "1673535721809",
+      "duztarih": "1673535721809"
+    },
+    {
+      "id": 17,
+      "evadi": "Sahibinden Komple KİRALIK",
+      "evfiyati": "654987",
+      "evResmi": "https://yatirimburada.com/assets/uploads/6c75c5e7ecc30289182fd9d8f1564b69.jpg",
+      "categoryId": "8",
+      "kaytarih": "1673543317729",
+      "duztarih": "1673543317729"
+    },
+    {
+      "id": 18,
+      "evadi": "Devren 1000metrekare arsa",
+      "evfiyati": "9639663",
+      "evResmi": "https://www.hepsiemlak.com/emlak-yasam/wp-content/uploads/2018/03/arsa-sorgulama-nasil-yapilir.jpg",
+      "categoryId": "6",
+      "kaytarih": "1673543402387",
+      "duztarih": "1673543402387"
+    }
+  ]
+}

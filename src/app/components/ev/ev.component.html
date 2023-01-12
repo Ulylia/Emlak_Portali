@@ -1,0 +1,134 @@
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-8 mt-5" >
+
+      <h3>Gayrimenkuller</h3>     
+      <label for="Kategori Seçiniz">Kategori Seçiniz</label>  
+      <select class="form-control" [(ngModel)]="katId" (ngModelChange)="KatSec($event)">
+        <option [value]="kat.id" *ngFor="let kat of kategoriler">{{kat.adi}}</option>
+      </select>
+      <button class="btn btn-outline-info mt-3" (click)="Ekle(modalEkleDuzenle)"
+        [disabled]="servis.aktifUye.admin==0">Gayrimenkul Ekle</button>
+      <p *ngIf="katId!=0">
+        Seçili Kategori : <b>{{secKat.adi}}</b>
+      </p>
+      <table class="table table-hover mt-3">
+        <thead>
+          <th>Id</th>
+          <th>Kategori</th>
+          <th>GayrimenkulAdı</th>
+          <th>Gayrimenkul Fiyatı</th>      
+          <th>Kayıt Tarihi</th>
+          <th>Düzenleme Tarihi</th>
+          <th>Düzenle</th>
+          <th>Sil</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ev of evler">
+            <td>{{ev.id}}</td>
+            <td>{{ev.categoryId}}</td>
+            <td>{{ev.evadi}}</td>
+            <td>{{ev.evfiyati}}</td>
+ 
+            <td>{{ev.kaytarih | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+            <td>{{ev.duztarih | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+            <td><button class="btn btn-outline-warning" (click)="Duzenle(ev,modalEkleDuzenle)"
+                [disabled]="servis.aktifUye.admin==0">Düzenle</button></td>
+            <td><button class="btn btn-outline-danger" (click)="Sil(ev,modalSil)"
+                [disabled]="servis.aktifUye.admin==0">Sil</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" #modalEkleDuzenle>
+  <div class="modal-dialog">
+    <form [formGroup]="frm" (ngSubmit)="EvEkleDuzenle()">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">{{modalBaslik}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="evadi">Gayrimenkul Adı</label>
+            <input type="text"  class="form-control" formControlName="evadi">
+            <label for="evfiyati">Gayrimenkul Fiyat</label>
+            <input type="text"  class="form-control" formControlName="evfiyati">
+            <label for="evResmi">Gayrimenkul Resmi</label>
+            <input type="text"  class="form-control" formControlName="evResmi">
+            <label>Kategori</label>
+            <select class="form-control" formControlName="categoryId">
+              <option [value]="kat.id" *ngFor="let kat of kategoriler">{{kat.adi}}</option>
+            </select>
+            <input type="hidden" class="form-control" formControlName="id">
+            <input type="hidden" class="form-control" formControlName="kaytarih">
+            <input type="hidden" class="form-control" formControlName="duztarih">
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <input type="submit" class="btn btn-outline-primary" value="Kaydet">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal" tabindex="-1" #modalSil>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">{{modalBaslik}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6 *ngIf="secEv">{{secEv.evadi}} adlı Gayrimenkul Silinecektir Onaylıyor musunuz?</h6>
+      </div>
+      <div class="modal-footer">
+
+        <button class="btn btn-outline-danger" *ngIf="secEv" (click)="EvSil()">Sil</button>
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+  <hr>
+
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-4 mt-3" *ngFor="let ev of evler">
+        <div class="card" style="width: 18rem;">
+          <img [src]="ev.evResmi" class="card-img-top" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">{{ev.evadi}}</h5>           
+          </div>
+
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><label for="kaytarih">Fiyatı</label>
+          <h5 class="card-title">{{ev.evfiyati}}</h5> </li>
+
+        <li class="list-group-item"><label for="kaytarih">Kayıt Tarihi</label>
+          <td>{{ev.kaytarih | date:'dd.MM.yyyy HH:mm:ss'}}</td></li>
+
+        <li class="list-group-item"><label for="duztarih">Düzenleme Tarihi</label>
+          <td>{{ev.duztarih | date:'dd.MM.yyyy HH:mm:ss'}}</td> </li>
+
+        </ul>
+       <div class="card-body">
+        <td><button class="btn btn-outline-warning mt-2" (click)="Duzenle(ev,modalEkleDuzenle)"
+          [disabled]="servis.aktifUye.admin==0">Düzenle</button></td>
+
+        <td><button class="btn btn-outline-danger mt-2" (click)="Sil(ev,modalSil)"
+          [disabled]="servis.aktifUye.admin==0">Sil</button></td>       
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+
